@@ -3,20 +3,11 @@ using Application.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using Api.Middleware;
+using Api.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
- {
-     options.AddDefaultPolicy(
-         policy =>
-         {
-             policy.AllowAnyOrigin();
-             policy.AllowAnyHeader();
-             policy.AllowAnyMethod();
-         });
- });
-
+builder.Services.AddApiServices();
 builder.Services.AddApplication();
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
@@ -27,9 +18,6 @@ builder.Services.AddDbContext<AppDBContext>(options =>
         b => b.MigrationsAssembly("Infrastructure")
     )
 );
-builder.Services.AddExceptionHandler<BusinessValidationExceptionHandler>();
-builder.Services.AddExceptionHandler<NotFoundExceptionHandler>();
-builder.Services.AddProblemDetails();
 
 var app = builder.Build();
 
