@@ -3,10 +3,8 @@ using Application.Interfaces;
 using Application.Models;
 using Application.Validators.Extension;
 using Domain.Entities;
-using Domain.Enums;
 using Domain.Interfaces;
 using FluentValidation;
-using Microsoft.IdentityModel.Tokens;
 using System.Linq.Expressions;
 
 namespace Application.Services

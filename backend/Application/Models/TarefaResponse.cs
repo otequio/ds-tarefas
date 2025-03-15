@@ -1,12 +1,5 @@
-﻿using Domain.Entities;
-using Domain.Enums;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion.Internal;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using Domain.Enums;
 using System.Text.Json.Serialization;
-using System.Threading.Tasks;
 
 namespace Application.Models
 {
