@@ -1,0 +1,6 @@
+@api_HostAddress = http://localhost:5240/api
+
+GET {{api_HostAddress}}/tarefas/1
+Accept: application/json
+
+###
