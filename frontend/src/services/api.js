@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:5240/api/tarefas";
+const BASE_URL = import.meta.env.VITE_API_URL ?? "http://localhost:5240/api";
+const API_URL = `${BASE_URL}/tarefas`
 
 const obterTarefas = async (status) => {
     const resposta = await axios.get(`${API_URL}?status=${status}`);
