@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Scalar.AspNetCore;
 using Api.Middleware;
 using Api.DependencyInjection;
+using Microsoft.AspNetCore.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -29,6 +30,8 @@ if (app.Environment.IsDevelopment())
 }
 app.UseExceptionHandler();
 app.UseStatusCodePages();
-app.MapControllers();
+app.UseRateLimiter();
+app.MapControllers()
+   .RequireRateLimiting("fixed");
 app.UseCors();
 app.Run();
