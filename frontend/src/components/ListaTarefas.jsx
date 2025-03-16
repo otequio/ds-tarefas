@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../services/api';
-import formatarData from '../helpers/dateHelper';
+import helperData from '../helpers/dateHelper';
 import { Table, Button, Form, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -75,8 +75,8 @@ const ListaTarefas = () => {
                         <tr key={tarefa.id}>
                             <td>{tarefa.titulo}</td>
                             <td>{tarefa.descricao}</td>
-                            <td>{formatarData(tarefa.dataCriacao)}</td>
-                            <td>{formatarData(tarefa.dataConclusao)}</td>
+                            <td>{helperData.formatarData(tarefa.dataCriacao)}</td>
+                            <td>{helperData.formatarData(tarefa.dataConclusao)}</td>
                             <td>{tratarStatus(tarefa.status)}</td>
                             <td>
                                 <div className="d-flex gap-2 mb-2">

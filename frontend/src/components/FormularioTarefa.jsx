@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Form, Button, Stack} from 'react-bootstrap';
+import { Form, Button} from 'react-bootstrap';
 import api from '../services/api';
+import helperData from '../helpers/dateHelper'
 import { Link } from 'react-router';
 import { useParams, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -51,19 +52,6 @@ const FormularioTarefa = () => {
         }
     };
 
-    const formatarDataHoraInput = (data) => {
-        if (!data)
-            return ''
-
-        const dataObject = new Date(data)
-        const ano = dataObject.getFullYear();
-        const mes = String(dataObject.getMonth() + 1).padStart(2, '0');
-        const dia = String(dataObject.getDate()).padStart(2, '0');
-        const horas = String(dataObject.getHours()).padStart(2, '0');
-        const minutos = String(dataObject.getMinutes()).padStart(2, '0');
-        return `${ano}-${mes}-${dia}T${horas}:${minutos}`;
-    };
-
     return (
         <div>
             <h1>{id ? 'Editar Tarefa' : 'Nova Tarefa'}</h1>
@@ -86,7 +74,7 @@ const FormularioTarefa = () => {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Data de conclusão</Form.Label>
-                    <Form.Control disabled={!id} type="datetime-local" value={formatarDataHoraInput(tarefa.dataConclusao)} onChange={(e) => setTarefa({ ...tarefa, dataConclusao: e.target.value })} />
+                    <Form.Control disabled={!id} type="datetime-local" value={helperData.formatarDataHoraInput(tarefa.dataConclusao)} onChange={(e) => setTarefa({ ...tarefa, dataConclusao: e.target.value })} />
                 </Form.Group>
                 <div className='d-flex justify-content-center gap-2 mt-2'>
                     <Button variant="primary" type="submit">Salvar</Button>

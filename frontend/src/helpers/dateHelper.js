@@ -13,4 +13,20 @@ const formatarData = (data) => {
   return dataFormatar.toLocaleDateString('pt-BR', opcoes)
 }
 
-export default formatarData
+const formatarDataHoraInput = (data) => {
+  if (!data)
+      return ''
+
+  const dataObject = new Date(data)
+  const ano = dataObject.getFullYear();
+  const mes = String(dataObject.getMonth() + 1).padStart(2, '0');
+  const dia = String(dataObject.getDate()).padStart(2, '0');
+  const horas = String(dataObject.getHours()).padStart(2, '0');
+  const minutos = String(dataObject.getMinutes()).padStart(2, '0');
+  return `${ano}-${mes}-${dia}T${horas}:${minutos}`;
+};
+
+export default {
+  formatarData,
+  formatarDataHoraInput
+}
