@@ -16,7 +16,8 @@ namespace Application.Models
         string? Descricao,
         [property: JsonConverter(typeof(NullableDateTimeConverter))]
         DateTime? DataConclusao,
-        [property: JsonConverter(typeof(JsonStringEnumConverter))]
+        [property: JsonConverter(typeof(EnumConverter<EnumStatus>))]
+        
         EnumStatus Status  = EnumStatus.Pendente
     );
 }
