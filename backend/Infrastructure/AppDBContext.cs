@@ -32,6 +32,10 @@ namespace Infrastructure
                 .Property(t => t.Status)
                 .HasConversion<int>()
                 .IsRequired();
+
+            modelBuilder.Entity<Tarefa>()
+                .Property(t => t.Status)
+                .HasColumnType("tinyint");
         }
 
     }

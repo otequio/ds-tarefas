@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(AppDBContext))]
-    [Migration("20250313133550_CriacaoInicial")]
+    [Migration("20250316154246_Criacao Inicial")]
     partial class CriacaoInicial
     {
         /// <inheritdoc />
@@ -43,8 +43,8 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(400)
                         .HasColumnType("nvarchar(400)");
 
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
+                    b.Property<byte>("Status")
+                        .HasColumnType("tinyint");
 
                     b.Property<string>("Titulo")
                         .IsRequired()

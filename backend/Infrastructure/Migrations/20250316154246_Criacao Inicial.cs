@@ -21,7 +21,7 @@ namespace Infrastructure.Migrations
                     Descricao = table.Column<string>(type: "nvarchar(400)", maxLength: 400, nullable: true),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DataConclusao = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    Status = table.Column<int>(type: "int", nullable: false)
+                    Status = table.Column<byte>(type: "tinyint", nullable: false)
                 },
                 constraints: table =>
                 {
