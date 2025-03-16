@@ -12,7 +12,6 @@ const ListaTarefas = () => {
     useEffect(() => {
       api.obterTarefas(filtroStatus)
         .then(result => {
-          console.log('buscou tarefas', filtroStatus)
           setTarefas(result)
         })
         .catch(erro => {
