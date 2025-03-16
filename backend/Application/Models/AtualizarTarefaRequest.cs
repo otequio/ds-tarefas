@@ -1,4 +1,5 @@
 ﻿using Domain.Enums;
+using Infrastructure.Serialization;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
@@ -13,6 +14,7 @@ namespace Application.Models
         string Titulo,
         [MaxLength(400, ErrorMessage = $"A descrição pode ter no máximo 400 caracteres")]
         string? Descricao,
+        [property: JsonConverter(typeof(NullableDateTimeConverter))]
         DateTime? DataConclusao,
         [property: JsonConverter(typeof(JsonStringEnumConverter))]
         EnumStatus Status  = EnumStatus.Pendente
