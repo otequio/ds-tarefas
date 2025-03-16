@@ -70,7 +70,7 @@ const FormularioTarefa = () => {
             <Form onSubmit={enviar}>
                 <Form.Group>
                     <Form.Label>Título</Form.Label>
-                    <Form.Control type="text" value={tarefa.titulo} onChange={(e) => setTarefa({ ...tarefa, titulo: e.target.value })} required />
+                    <Form.Control type="text" value={tarefa.titulo} onChange={(e) => setTarefa({ ...tarefa, titulo: e.target.value })} />
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Descrição</Form.Label>
@@ -78,7 +78,7 @@ const FormularioTarefa = () => {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Status</Form.Label>
-                    <Form.Control as="select" value={tarefa.status} onChange={(e) => setTarefa({ ...tarefa, status: e.target.value })}>
+                    <Form.Control disabled={!id} as="select" value={tarefa.status} onChange={(e) => setTarefa({ ...tarefa, status: e.target.value })}>
                         <option value="Pendente">Pendente</option>
                         <option value="EmProgresso">Em Progresso</option>
                         <option value="Concluida">Concluída</option>
@@ -86,7 +86,7 @@ const FormularioTarefa = () => {
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Data de conclusão</Form.Label>
-                    <Form.Control type="datetime-local" value={formatarDataHoraInput(tarefa.dataConclusao)} onChange={(e) => setTarefa({ ...tarefa, dataConclusao: e.target.value })} />
+                    <Form.Control disabled={!id} type="datetime-local" value={formatarDataHoraInput(tarefa.dataConclusao)} onChange={(e) => setTarefa({ ...tarefa, dataConclusao: e.target.value })} />
                 </Form.Group>
                 <div className='d-flex justify-content-center gap-2 mt-2'>
                     <Button variant="primary" type="submit">Salvar</Button>
